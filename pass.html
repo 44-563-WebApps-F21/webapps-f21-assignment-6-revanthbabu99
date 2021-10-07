@@ -25,40 +25,38 @@
         <b><b>
 
         <p id="result">This text will be replaced </p>
-
-        
-
-        <script> 
-            correct=0;
-            wrong=0;
-            function processPhrase(){
-                console.log("Checking the phrase")
-                passcode=document.getElementById("passcode").value
-                Check_code=document.getElementById("Check_code").value
-                confirmed=confirm("Do you want to continue with phrase :"+Check_code)
-                out=document.getElementById("result")
-                if(confirmed){
-                    if(passcode==Check_code){
-                    correct=correct+1;
-                    alert("Access allowed")
-                    out.innerHTML="Correct attempt "+correct}
-                    else{
-                    wrong=wrong+1;
-                    alert("Access denied")
-                    out.innerHTML="Wrong attempt"+wrong
-                    }
-        
+    </form>
+    <br><br>
+    <p id="result">Result</p>
+    <script>
+        correct=0;
+        wrong=0;
+        function processPhrase(){
+            console.log("Checking the phrase")
+            passcode=document.getElementById("secret_phrase").value
+            Check_code=document.getElementById("check_phrase").value
+            confirmed=confirm("Do you want to continue with phrase :"+Check_code)
+            out=document.getElementById("result")
+            if(confirmed){
+                if(passcode==Check_code){
+                correct++
+                alert("Access allowed")
+                out.innerHTML="Correct attempt "+correct}
+                else{
+                wrong++
+                alert("Access denied")
+                out.innerHTML="Wrong attempt"+wrong
                 }
-                else
-                out.innerHTML="please confirm"
-                while (wrong>=3) {
-                    alert("Account locked");                }
-                
-                
-            }
-        
-                    
     
+            }
+            else
+            out.innerHTML="please confirm"
+            while (wrong>=4) {
+                alert("Account locked");                }
+            
+            
+        }
+  
       </script>
         <div class="container">
             <p>GUESS</p>
